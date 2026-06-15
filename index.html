@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>АППК | Расписание и новости</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <div class="hero-strip"></div>
+        <div class="page-width">
+            <div class="topbar panel glass-panel">
+                <div class="brand-lockup">
+                    <div class="brand-square">АП</div>
+                    <div class="brand-copy">
+                        <div class="eyebrow">Колледж online</div>
+                        <h1>Расписание звонков АППК</h1>
+                        <p>Windows 10 / Metro UI стиль для студентов, преподавателей и дежурных групп.</p>
+                    </div>
+                </div>
+                <div class="status-area">
+                    <div class="status-card theme-card">
+                        <span class="status-label">Тема интерфейса</span>
+                        <select id="themeSelector" class="theme-selector">
+                            <option value="theme-metro">Metro / Fluent</option>
+                            <option value="theme-classic">Classic (Win2000)</option>
+                            <option value="theme-luna">Luna (WinXP)</option>
+                            <option value="theme-aero">Aero (WinVista)</option>
+                            <option value="theme-holo">Holo (Android)</option>
+                            <option value="theme-aqua">Aqua (iOS / Mac)</option>
+                        </select>
+                    </div>
+                    <div class="status-card accent-card">
+                        <span class="status-label">Сейчас</span>
+                        <strong id="currentStatus">Определение текущей пары...</strong>
+                    </div>
+                    <div class="status-card neutral-card">
+                        <span class="status-label">Сегодня</span>
+                        <strong id="todayLabel">Загрузка даты...</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobileRibbon" class="mobile-ribbon panel glass-panel">
+                <div class="mobile-ribbon-title">Навигация</div>
+                <div class="mobile-ribbon-tabs">
+                    <a href="#section-timer" id="ribbonTabTimer" class="mobile-ribbon-tab is-active" data-target="section-timer">Таймер</a>
+                    <a href="#section-schedule" id="ribbonTabSchedule" class="mobile-ribbon-tab" data-target="section-schedule">Расписание</a>
+                    <a href="#section-news" id="ribbonTabNews" class="mobile-ribbon-tab" data-target="section-news">Новости</a>
+                </div>
+            </div>
+
+            <div class="layout-row">
+                <div class="main-column">
+                    <div id="section-timer" class="panel tile-grid-panel mobile-section">
+                        <div class="section-heading">
+                            <h2>Текущая пара и таймер</h2>
+                            <span class="section-hint">До конца занятия / перемены</span>
+                        </div>
+                        <div class="tile-grid">
+                            <div class="metro-tile tile-cyan countdown-tile">
+                                <div class="tile-topline">Обратный отсчёт</div>
+                                <div id="countdown" class="countdown-value">--:--:--</div>
+                                <div id="countdownLabel" class="tile-footnote">Ожидание данных...</div>
+                            </div>
+                            <div class="metro-tile tile-blue">
+                                <div class="tile-topline">Текущий интервал</div>
+                                <div id="currentSlot" class="tile-big-copy">Нет активного интервала</div>
+                            </div>
+                            <div class="metro-tile tile-dark">
+                                <div class="tile-topline">Следующий звонок</div>
+                                <div id="nextBell" class="tile-big-copy">--:--</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="section-schedule" class="panel mobile-section">
+                        <div class="section-heading">
+                            <h2>Расписание звонков</h2>
+                            <span class="section-hint">Можно изменить в `assets/js/app.js`</span>
+                        </div>
+                        <div class="schedule-profile-box">
+                            <span class="status-label">Тип расписания</span>
+                            <select id="scheduleProfileSelector" class="theme-selector schedule-selector">
+                                <option value="auto">Авто</option>
+                                <option value="regular">Обычные занятия</option>
+                                <option value="monday">Понедельник</option>
+                                <option value="short">Сокращённые занятия</option>
+                            </select>
+                        </div>
+                        <div id="scheduleList" class="schedule-list"></div>
+                    </div>
+                </div>
+
+                <div class="side-column">
+                    <div id="section-news" class="panel news-panel mobile-section">
+                        <div class="section-heading">
+                            <h2>Новости колледжа</h2>
+                            <span id="newsState" class="section-hint">Загрузка...</span>
+                        </div>
+                        <div id="newsEmbedHost" class="news-embed-host">
+                            <iframe id="newsFrame" class="news-frame" src="https://m.vk.com/wall-217232463" frameborder="0" scrolling="yes"></iframe>
+                            <div id="newsFrameMask" class="news-frame-mask">Подключение к VK-ленте...</div>
+                        </div>
+                        <div id="newsFallback" class="news-fallback" style="display: none;">
+                            <div class="empty-state">Встроенная лента VK сейчас недоступна. Показывается локальный резерв новостей.</div>
+                            <div id="newsList" class="news-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/news-fallback.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+</body>
+</html>
